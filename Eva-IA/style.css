@@ -1,0 +1,241 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    /* outras propriedades */
+    overflow-x: hidden;
+}
+
+:root {
+    --primary-color: #33aaff;
+    --secondary-color: #7b29ff;
+    --bg-dark: #0f0f2a;
+    --card-bg: rgba(255, 255, 255, 0.1);
+    --text-light: #ffffff;
+    --font-stack: 'Montserrat', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: url('./img/5439188.jpg') no-repeat center center/cover;
+    font-family: var(--font-stack);
+    height: 100vh;
+    color: var(--text-light);
+    display: flex;
+    flex-direction: column;
+}
+h2{
+    color:#ffffff;
+}
+
+/* Navbar (Topo) */
+
+#navbar {
+    width: 100%;
+    padding: 15px 50px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05); 
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.8em;
+    font-weight: 800;
+    color: var(--primary-color);
+}
+
+/* Conteúdo Principal e Layout de Grid */
+
+.main-container {
+    flex-grow: 1;
+    display: flex;
+    padding: 0 50px;
+    max-width: 1400px;
+    width: 100%;
+    margin: auto;
+}
+
+.hero-text-area {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 50px;
+}
+
+.subtitle {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.hero-text-area h1 {
+    font-size: 4em;
+    font-weight: 800;
+    line-height: 1.1;
+    margin: 0 0 20px 0;
+}
+
+.cta-button {
+    padding: 15px 30px;
+    background: var(--primary-color);
+    border: none;
+    border-radius: 5px;
+    color: var(--bg-dark);
+    font-size: 1.1em;
+    font-weight: 800;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+    width: fit-content;
+}
+
+.cta-button:hover {
+    background-color: #5cc2ff;
+}
+
+.cta-button i {
+    margin-right: 10px;
+}
+
+.content-wrapper {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+/* Card da EVA e Cartões de Funcionalidade */
+
+.eva-card {
+    position: relative;
+    width: 350px;
+    height: 550px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.character {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    object-fit: contain;
+    transform: translateY(-30px);
+}
+
+.feature-cards-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.feature-card {
+    width: 250px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.151);
+    border-radius: 15px;
+    cursor: pointer;
+    transition: transform 0.3s, background 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.feature-card i {
+    font-size: 2.5em;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.feature-card h2 {
+    font-size: 1.5em;
+    margin: 0 0 5px 0;
+}
+
+.feature-card p {
+    font-size: 0.9em;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Responsividade para Mobile */
+
+@media (max-width: 1024px) {
+    .main-container {
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 20px 20px;
+        overflow-y: auto;
+    }
+
+    .hero-text-area {
+        width: 100%;
+        text-align: center;
+        padding: 20px 0;
+    }
+
+    .hero-text-area h1 {
+        font-size: 3em;
+    }
+    
+    .cta-button {
+        margin: 0 auto 20px auto;
+    }
+
+    .content-wrapper {
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .eva-card {
+        width: 90vw;
+        height: 400px;
+        margin-bottom: 20px;
+    }
+
+    .character {
+        max-width: 200px;
+    }
+
+    .feature-cards-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        width: 90vw;
+        margin-bottom: 20px;
+    }
+
+    .feature-card {
+        width: auto;
+        padding: 15px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 600px) {
+    #navbar {
+        padding: 10px 20px;
+    }
+    .feature-cards-grid {
+        grid-template-columns: 1fr;
+    }
+}
